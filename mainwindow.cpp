@@ -10,9 +10,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->videoWidget = new QVideoWidget();
     this->mediaPlayer = new QMediaPlayer();
+    this->currentContentSlider = new QSlider();
 
     this->setCentralWidget(this->videoWidget);
     this->mediaPlayer->setVideoOutput(this->videoWidget);
+
+    this->currentContentSlider->setOrientation(Qt::Horizontal);
+    this->ui->secondToolBar->addWidget(this->currentContentSlider);
+
+    connect(this->mediaPlayer, &QMediaPlayer::durationChanged, this->currentContentSlider, &QSlider::setMaximum);
+    connect(this->mediaPlayer, &QMediaPlayer::positionChanged, this->currentContentSlider, &QSlider::setValue);
+    connect(this->currentContentSlider, &QSlider::sliderMoved, this->mediaPlayer, &QMediaPlayer::setPosition);
 }
 
 MainWindow::~MainWindow()

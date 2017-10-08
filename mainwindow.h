@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QMediaPlayer>
 #include <QVideoWidget>
+#include <QSlider>
 
 namespace Ui {
 class MainWindow;
@@ -28,6 +29,8 @@ private:
     Ui::MainWindow *ui;
     QMediaPlayer* mediaPlayer;
     QVideoWidget* videoWidget;
+    QSlider* currentContentSlider;
+
 };
 
 #endif // MAINWINDOW_H
