@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMediaPlayer>
+#include <QVideoWidget>
 
 namespace Ui {
 class MainWindow;
@@ -15,8 +17,13 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_actionOpen_triggered();
+
 private:
     Ui::MainWindow *ui;
+    QMediaPlayer* mediaPlayer;
+    QVideoWidget* videoWidget;
 };
 
 #endif // MAINWINDOW_H
