@@ -34,6 +34,7 @@ void MainWindow::on_actionPlay_triggered()
     if (QMediaPlayer::PausedState == this->mediaPlayer->state())
     {
         this->mediaPlayer->play();
+        this->ui->statusBar->showMessage("Playing");
     }
 }
 
@@ -42,5 +43,6 @@ void MainWindow::on_actionPause_triggered()
     if (QMediaPlayer::PlayingState == this->mediaPlayer->state())
     {
         this->mediaPlayer->pause();
+        this->ui->statusBar->showMessage("Paused");
     }
 }
