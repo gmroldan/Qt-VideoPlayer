@@ -28,3 +28,19 @@ void MainWindow::on_actionOpen_triggered()
     this->mediaPlayer->setMedia(QUrl::fromLocalFile(fileName));
     this->mediaPlayer->play();
 }
+
+void MainWindow::on_actionPlay_triggered()
+{
+    if (QMediaPlayer::PausedState == this->mediaPlayer->state())
+    {
+        this->mediaPlayer->play();
+    }
+}
+
+void MainWindow::on_actionPause_triggered()
+{
+    if (QMediaPlayer::PlayingState == this->mediaPlayer->state())
+    {
+        this->mediaPlayer->pause();
+    }
+}
