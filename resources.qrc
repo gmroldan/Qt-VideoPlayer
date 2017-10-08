@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>icons/media-pause.png</file>
+        <file>icons/media-play.png</file>
+        <file>icons/media-skip-backward.png</file>
+        <file>icons/media-skip-forward.png</file>
+        <file>icons/media-step-backward.png</file>
+        <file>icons/media-step-forward.png</file>
+        <file>icons/media-stop.png</file>
+        <file>icons/menu.png</file>
+        <file>icons/folder.png</file>
+        <file>icons/volume-high.png</file>
+    </qresource>
+</RCC>
