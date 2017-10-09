@@ -5,6 +5,7 @@
 #include <QMediaPlayer>
 #include <QVideoWidget>
 #include <QSlider>
+#include <QLabel>
 
 namespace Ui {
 class MainWindow;
@@ -25,11 +26,16 @@ private slots:
 
     void on_actionPause_triggered();
 
+    void positionChanged(qint64 position);
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer* mediaPlayer;
     QVideoWidget* videoWidget;
     QSlider* currentContentSlider;
+    QLabel* currentContentDuration;
+
+    void updateDurationInfo();
 
 };
 
