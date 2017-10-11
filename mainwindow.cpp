@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include <QFileDialog>
 #include <QTime>
+#include <QBoxLayout>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -14,12 +17,21 @@ MainWindow::MainWindow(QWidget *parent) :
     this->currentContentSlider = new QSlider();
     this->currentContentDuration = new QLabel("00:00/00:00");
 
-    this->setCentralWidget(this->videoWidget);
     this->mediaPlayer->setVideoOutput(this->videoWidget);
-
     this->currentContentSlider->setOrientation(Qt::Horizontal);
-    this->ui->secondToolBar->addWidget(this->currentContentSlider);
-    this->ui->secondToolBar->addWidget(this->currentContentDuration);
+
+    QBoxLayout* displayLayout = new QHBoxLayout;
+    displayLayout->addWidget(videoWidget);
+
+    QHBoxLayout* hLayout = new QHBoxLayout();
+    hLayout->addWidget(this->currentContentSlider);
+    hLayout->addWidget(this->currentContentDuration);
+
+    QBoxLayout* boxLayout = new QVBoxLayout();
+    boxLayout->addLayout(displayLayout);
+    boxLayout->addLayout(hLayout);
+
+    this->ui->centralWidget->setLayout(boxLayout);
 
     connect(this->mediaPlayer, &QMediaPlayer::durationChanged, this->currentContentSlider, &QSlider::setMaximum);
     connect(this->mediaPlayer, &QMediaPlayer::positionChanged, this, &MainWindow::positionChanged);
