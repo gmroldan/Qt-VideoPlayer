@@ -35,6 +35,9 @@ private:
     QSlider* currentContentSlider;
     QLabel* currentContentDuration;
 
+    void init();
+    void initLayout();
+    void initSignalsAndSlots();
     void updateDurationInfo();
 
 };
